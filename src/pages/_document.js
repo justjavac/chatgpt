@@ -17,10 +17,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="zh-CN" className="dark [--scroll-mt:9.875rem] lg:[--scroll-mt:6.3125rem]">
         <Head>
-          <link rel="icon" type="image/png" sizes="32x32" href={v('/favicons/favicon-32x32.png')} />
-          <link rel="icon" type="image/png" sizes="16x16" href={v('/favicons/favicon-16x16.png')} />
           <link rel="shortcut icon" href={v('/favicons/favicon.ico')} />
-          <meta name="msapplication-TileColor" content="#38bdf8" />
           <meta name="theme-color" content="#f8fafc" />
           <script
             dangerouslySetInnerHTML={{

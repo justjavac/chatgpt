@@ -1,19 +1,22 @@
 import { createPageList } from '@/utils/createPageList'
 
 const pages = createPageList(
-  require.context(`../pages/?meta=title,shortTitle,published`, false, /\.mdx$/),
+  require.context(`../pages/?meta=title,shortTitle,published`, false, /\.mdx$/)
 )
 
 export const documentationNav = {
-  介绍: [
+  入门: [
     {
-      title: 'ChatGPT',
+      title: '介绍',
       href: '/',
     },
-    pages['animation'],
+    pages['signup'],
+    pages['credit-card'],
   ],
-  Sizing: [
-    pages['width'],
-    pages['height'],
+  开发: [
+    {
+      title: 'API',
+      href: '/api',
+    },
   ],
 }

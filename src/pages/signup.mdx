@@ -1,0 +1,78 @@
+---
+title: 注册 ChatGPT
+description: 使用接码平台注册 ChatGPT/OpenAI 账号。
+---
+
+import { TipGood, TipBad } from '@/components/Tip'
+
+ChatGPT/OpenAI 不支持国内手机注册，本文介绍如何使用接码平台注册 ChatGPT/OpenAI 账号。
+
+## 准备
+
+- **代理**。要求是韩国，日本，印度，新加坡，美国这些国家的地址。香港或台湾的代理不行。
+- **国外手机号码**，如果没有国外手机号码，可以使用接码平台。推荐一个 [sms-activate.org](https://sms-activate.org/?ref=3140391)
+- 准备一个浏览器
+
+## 第一步: 接验证码
+
+打开接码平台 [sms-activate.org](https://sms-activate.org/?ref=3140391)，注册一个账号。
+
+![](/img/sms-sigup-1.png)
+
+然后充值余额
+
+![](/img/sms-signup-2.png)
+
+<TipBad>别充太多钱，1/2 开钱就够了。</TipBad>
+
+一次验证码的费用大概是 11 卢布，折合人民币差不多是 1 块钱，不过只能充美金，可以选择对你任何方便方式。**支持支付宝**。
+
+充值完成可能需要等一会，就先放着，直接进行下一步。
+
+## 第二步: 注册 OpenAI
+
+打开 [OpenAI](https://platform.openai.com) 网址，和一般的网站一样，注册一个账号。
+
+有一些人会在这里遇到一个问题，会出现说不能在当前国家服务的提示。
+
+![](/img/openai-nan.png)
+
+一般出现这种问题，就是因为你的代理没有全局，或者位置不对。香港或中国的的代理是 100% 无法通过的。
+
+有时候换了代理，还是不行，这时候就需要下面的解决方式。
+
+### 解决地区问题
+
+先把代理切换到任何合适的地区。
+
+打开浏览器的 DevTools，可以使用快捷键 `F12`，或者右键点击页面，选择 `检查`。
+
+输入以下代码，然后回车。
+
+```js
+window.localStorage.removeItem(Object.keys(window.localStorage).find(i=>i.startsWith('@@auth0spajs')))
+```
+
+刷新页面。如果你的代理没问题，就可以看到正常工作的注册页面了。
+
+### 输入手机号码
+
+下一步是输入手机号码，这里需要使用接码平台的号码。
+
+![](/img/oenai-signup-phone.png)
+
+这里选的是韩国，这是因为我们使用韩国的代理。但是我们最好选择印度，因为印度的最便宜。然后到我们的接码网站上去。在左侧搜索 OpenAi，然后点击印度。
+
+![](/img/openai-signup-sms-2.png)
+
+点击”小黄车”。
+
+![](/img/openai-signup-sms-3.png)
+
+然后我们复制这个号码，粘贴过去。然后我们点击发送验证码就完成了。
+
+等一会网站会提示验证码，我们复制粘贴。
+
+## 第三步: 使用 ChatGPT
+
+注册完后，打开 [ChatGPT](https://chat.openai.com/auth/login) 网站去登陆。
