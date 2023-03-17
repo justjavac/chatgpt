@@ -206,11 +206,14 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
       </ContentsContext.Provider>
 
       <DocsFooter previous={prev} next={next}>
-        <Link
+        <a
+          className="hover:text-slate-900 dark:hover:text-slate-400"
           href={`https://github.com/justjavac/chatgpt/edit/main/src/pages${router.pathname}.mdx`}
+          target="_blank"
+          rel="noopener noreferrer nofollow"
         >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">在 GitHub 上编辑</a>
-        </Link>
+          在 GitHub 上编辑
+        </a>
       </DocsFooter>
 
       <div className="fixed z-20 top-[3.8125rem] bottom-0 right-[max(0px,calc(50%-45rem))] w-[19.5rem] py-10 overflow-y-auto hidden xl:block">
