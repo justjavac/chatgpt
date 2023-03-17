@@ -86,25 +86,12 @@ export function NavItems() {
   return (
     <>
       <li>
-        <Link href="/docs/installation">
+        <Link href="/signup">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">注册</a>
         </Link>
       </li>
       <li>
-        <a
-          href="https://tailwindui.com/?ref=top"
-          className="hover:text-sky-500 dark:hover:text-sky-400"
-        >
-          Components
-        </a>
-      </li>
-      <li>
-        <Link href="/blog">
-          <a className="hover:text-sky-500 dark:hover:text-sky-400">Blog</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/showcase">
+        <Link href="/donate">
           <a className="hover:text-sky-500 dark:hover:text-sky-400">捐赠</a>
         </Link>
       </li>
@@ -150,7 +137,10 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
           >
             <div className="relative flex items-center">
               <Link href="/">
-                <a className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto" title="ChatGPT 从入门到精通">
+                <a
+                  className="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto"
+                  title="ChatGPT 从入门到精通"
+                >
                   <span className="sr-only">ChatGPT 从入门到精通</span>
                   <Logo className="w-auto h-8" />
                 </a>
@@ -166,6 +156,8 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                   <a
                     href="https://github.com/justjavac/chatgpt"
                     className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
+                    target="_blank"
+                    rel="noopener noreferrer nofollow"
                   >
                     <span className="sr-only">在 GitHub 上查看 ChatGPT 从入门到精通</span>
                     <svg

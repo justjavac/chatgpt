@@ -4,11 +4,6 @@ export function PageHeader({ title, description, repo, badge = {}, section }) {
   return (
     <header id="header" className="relative z-20">
       <div>
-        {section && (
-          <p className="mb-2 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400">
-            {section}
-          </p>
-        )}
         <div className="flex items-center">
           <h1 className="inline-block text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
             {title}
@@ -32,7 +27,7 @@ export function PageHeader({ title, description, repo, badge = {}, section }) {
         </div>
       </div>
       {description && (
-        <p className="mt-2 text-lg text-slate-700 dark:text-slate-400">{description}</p>
+        <p className="mt-2 text-sm text-slate-700 dark:text-slate-400">{description}</p>
       )}
     </header>
   )
