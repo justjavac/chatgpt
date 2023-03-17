@@ -33,7 +33,7 @@ const fallbackDefaultExports = {
 };
 
 const fallbackGetStaticProps = {
-  "src/pages/**/*": "@/layouts/ContentsLayout",
+  "src/pages/blog/**/*": "@/layouts/ContentsLayout",
 };
 
 module.exports = withBundleAnalyzer({
