@@ -15,6 +15,7 @@ export const documentationNav = {
   ],
   开发: [
     pages['concept'],
+    pages['quickstart'],
     {
       title: 'TODO',
       href: '/api',
