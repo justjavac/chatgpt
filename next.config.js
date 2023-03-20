@@ -2,19 +2,19 @@ const path = require("path");
 const { createLoader } = require("simple-functional-loader");
 const frontMatter = require("front-matter");
 const withSmartQuotes = require("@silvenon/remark-smartypants");
-const { withTableOfContents } = require("./remark/withTableOfContents");
-const { withSyntaxHighlighting } = require("./remark/withSyntaxHighlighting");
-const { withNextLinks } = require("./remark/withNextLinks");
-const { withLinkRoles } = require("./rehype/withLinkRoles");
+const { withTableOfContents } = require("./scripts/remark/withTableOfContents");
+const { withSyntaxHighlighting } = require("./scripts/remark/withSyntaxHighlighting");
+const { withNextLinks } = require("./scripts/remark/withNextLinks");
+const { withLinkRoles } = require("./scripts/rehype/withLinkRoles");
 const minimatch = require("minimatch");
-const withExamples = require("./remark/withExamples");
+const withExamples = require("./scripts/remark/withExamples");
 const {
   highlightCode,
   fixSelectorEscapeTokens,
   simplifyToken,
   normalizeTokens,
-} = require("./remark/utils");
-const { withPrevalInstructions } = require("./remark/withPrevalInstructions");
+} = require("./scripts/remark/utils");
+const { withPrevalInstructions } = require("./scripts/remark/withPrevalInstructions");
 const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
