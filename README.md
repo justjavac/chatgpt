@@ -7,7 +7,7 @@
 1. 入门
    1. 介绍
    1. 注册 ChatGPT
-   1. 绑定信用卡
+   1. 绑定虚拟信用卡
 1. Coming soon...
 
 ## Copyright
