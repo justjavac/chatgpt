@@ -14,6 +14,7 @@ export const documentationNav = {
     pages['credit-card'],
   ],
   开发: [
+    pages['concept'],
     {
       title: 'TODO',
       href: '/api',

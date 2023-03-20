@@ -1,0 +1,56 @@
+---
+title: "概念/术语"
+description: 本文介绍了一些开发 OpenAI/ChatGPT 过程中常用的术语和概念。
+---
+
+import { TipGood, TipBad, TipInfo, TipWarning } from '@/components/Tip'
+
+在 OpenAI 的开发过程中，程序员需要理解一些核心概念。本文将介绍一些开发 OpenAI/ChatGPT 过程中常用的术语和概念。
+
+## Prompt
+
+Prompt 则是 Chatgpt 的重要功能之一，指的是预设的输入提示，可以让用户根据提示进行输入，从而引导 Chatgpt 生成更加符合用户需求的回复。
+
+举例来说，比如当用户想要和 Chatgpt 进行一次日常闲聊的时候，可以使用一些通用的 Prompt，如“你想聊什么呢？”、“今天有什么想说的吗？”等等。当用户输入了相应的文本后，Chatgpt 就会根据预设的输入提示生成类似于“嗯，其实最近我也有些烦恼，你有什么好的建议吗？”“哦，原来你是喜欢这种类型的电影啊，那我推荐给你一部……”等回复。
+
+除此之外，Prompt 还可以通过不同的关键词，预测用户下一步会说出什么，引导 Chatgpt 更准确地理解用户的需求，生成更贴近用户胃口的回复。比如一个关于旅游的 Prompt，“你想去哪里旅游呢？”输入的是“海滨城市”，Chatgpt 就可能根据“海滨城市”的关键词，生成与沙滩度假、船出海岛等内容有关的回复。
+
+总的来说，Prompt 是 Chatgpt 中非常实用的一项功能，可以帮助机器人更好地与用户互动，提升用户体验。
+
+## Token
+
+Tokens 是将一段文本拆分成的单个单词、标点符号或其他语言单位的术语。
+
+在 Chatgpt 中，Token 可以是单词或字符块。例如，`hamburger` 这个单词被分成了 `ham`、`bur` 和 `ger` 三个 Token，而像 `pear` 这样的短而常见的单词则是一个 Token。许多 Token 以空格开头，例如` hello` 和 ` bye`。
+
+在 API 请求中处理的 Token 数量取决于输入和输出的长度。粗略的经验法则是，对于英文文本，1 个标记约等于 4 个字符或 0.75 个单词。
+
+OpenAI 官方提供了一个在线[分词工具](https://platform.openai.com/tokenizer)，根据工具提供的分词结果看，**1 个中文词语会分解为 2/3 个 Token**。
+
+`Hello World` 的分词结果：2 个 Token，11 个字符。
+
+<div class="text-sm">
+    <span class="bg-indigo-700/30">Hello</span>
+    <span class="bg-green-500/40"> World</span>
+</div>
+
+`你好世界`的分词结果：8 个 Token，4 个字符。
+
+<div class="text-sm">
+    <span class="bg-indigo-700/30">�</span>
+    <span class="bg-green-500/40">�</span>
+    <span class="bg-gray-300/50">�</span>
+    <span class="bg-blue-500/40">�</span>
+    <span class="bg-indigo-700/30">�</span>
+    <span class="bg-green-500/40">�</span>
+    <span class="bg-gray-300/50">�</span>
+    <span class="bg-blue-500/40">�</span>
+</div>
+
+我本以为是 2 个 Token，或者是 4 个 Token，没想到居然是 8 个 Token。所以使用中文的时候一定要注意。
+
+## Model
+
+OpenAI 致力于开发各种先进的深度学习模型，以解决人工智能领域的各种挑战。这些模型适用于不同的应用场景，如自然语言处理、计算机视觉、游戏AI等，并已在多个实用案例中取得了显著的成效。
+
+目前，在 OpenAI 的众多模型中，最为知名的莫过于GPT-3（Generative Pre-trained Transformer 3）。该模型基于 Transformer 架构构建，是当前最先进、最强大的自然语言处理模型之一。它通过大规模的数据预训练，在吸收了大量的语料库信息后，能够达到极高的自然语言理解和生成能力。GPT-3 不仅可以完成常见的NLP任务，如理解语义、生成对话、自动翻译等，还能够创作文本和生成代码等高级应用。
