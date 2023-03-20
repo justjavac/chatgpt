@@ -1,0 +1,138 @@
+---
+title: 入门指南
+ogDescription: 一个极简的 ChatGPT 代码示例。
+---
+
+import { TipInfo, TipGood } from '@/components/Tip'
+import { SnippetGroup } from '@/components/SnippetGroup'
+
+## 第一段代码
+
+下面代码来自官方文档，使用了 [openai](https://www.npmjs.com/package/openai) 这个 npm 包，这个包是官方提供的，可以直接使用。
+
+```js hello.js
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+const completion = await openai.createChatCompletion({
+  model: "gpt-3.5-turbo",
+  messages: [{role: "user", content: "Hello world"}],
+});
+console.log(completion.data.choices[0].message);
+```
+
+这段代码什么意思呢？
+
+在之前的章节中，我们已经成功注册了 ChatGPT 和 OpenAI 的账号，现在我们可以使用它们了。打开 ChatGPT，输入下面内容：
+
+```text ChatGPT 输入
+解释一下这段代码：
+
+const { Configuration, OpenAIApi } = require("openai");
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+const completion = await openai.createChatCompletion({
+  model: "gpt-3.5-turbo",
+  messages: [{role: "user", content: "Hello world"}],
+});
+console.log(completion.data.choices[0].message);
+```
+
+ChatGPT 会返回下面内容：
+
+<TipGood>下面内容由 ChatGPT 自动生成</TipGood>
+
+```mdx ChatGPT 输出
+这段代码使用 OpenAI 的 JavaScript 客户端库来调用 OpenAI API，对消息进行自然语言处理。
+
+以下是每行代码的解释：
+
+1. `const { Configuration, OpenAIApi } = require("openai");`
+
+    引入 OpenAI 的 JavaScript 客户端库中的 `Configuration` 和 `OpenAIApi` 类，以便可以使用 OpenAI API。
+
+2. `const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY, });`
+
+    创建了一个 OpenAI Configuration 实例，该实例包含用于调用 OpenAI API 的 apiKey 信息。其中，apiKey 存储在环境变量 OPENAI_API_KEY 中。
+
+3. `const openai = new OpenAIApi(configuration);`
+
+    通过上一步创建的 `Configuration` 实例，创建了一个连到 OpenAI API 的 `OpenAIApi` 实例（即客户端）。
+
+4. `const completion = await openai.createChatCompletion({ model: "gpt-3.5-turbo", messages: [{role: "user", content: "Hello world"}], });`
+
+    调用 `openai.createChatCompletion()` 方法，创建一个聊天完成请求，该方法的参数对象包含以下信息：
+
+    - `model`：指定使用的模型。
+    -` messages`：一个包含角色和内容字段的数组，表示一组指示请求意图的消息。
+
+    `createChatCompletion()` 方法返回一个带有 OpenAI API 的响应的 `Promise`。`await` 关键字将等待新 `Promise` 解决后继续执行代码。
+
+5. `console.log(completion.data.choices[0].message);`
+
+    输出调用 OpenAI API 的响应文本，文本内容在响应的 `choices` 属性中，而在此次调用中只有一个选择。而 `completion.data.choices[0].message` 是响应文本的实际内容。
+```
+
+## 概述
+
+通过 OpenAI Chat API，你可以使用 gpt-3.5-turbo 和 gpt-4 创建自己的应用程序来执行以下操作：
+
+- 撰写电子邮件或其他文本
+- 编写 Python/Nodejs/Deno 代码
+- 回答问题
+- 创建聊天机器人
+- 在软件中提供自然语言接口
+- 翻译语言
+
+你还可以在 [OpenAI Playground](https://platform.openai.com/playground?mode=chat) 中尝试各种聊天参数和格式。
+
+## 说明
+
+聊天模型以一系列消息作为输入，并返回由模型生成的消息作为输出。
+
+尽管聊天格式使多轮对话变得容易，但它同样适用于没有任何对话的单轮任务。一个 API 调用的示例如下：
+
+```js chat.js
+import { Configuration, OpenAIApi } from "openai";
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+const completion = await openai.createChatCompletion({
+  model: "gpt-3.5-turbo",
+  messages: [
+    { role: "system", content: "你是一个非常实用的 AI 助手" },
+    { role: "user", content: "2022世界杯在哪儿举行？" },
+    { role: "assistant", content: "2022年世界杯将在卡塔尔举行。" },
+    { role: "user", content: "冠军是谁？" },
+  ],
+});
+
+console.log(completion.data.choices[0]);
+```
+
+`messages` 参数是 `createChatCompletion` 方法中最重要的参数，该参数包含多个消息对象。每个消息都有一个角色，可以是 `system`、`user`、`assistant` 中的任意一个。
+
+- `user`：代表用户发送的消息，即用户输入的问题或者指令。在上述代码中，第二个和第四个消息都是 user 类型的。
+
+- `assistant`：代表聊天机器人通过调用 AI 算法给出的回答或者响应。在上述代码中，第三个消息就是一个 assistant 类型的消息。
+
+- `system`：代表系统或者客户端通过代码发出的消息。系统消息的目的是给 assistant 提供进一步的指导或者指示，从而让 assistant 作出更好的响应。
+
+一个聊天记录以 `system` 类型的消息开始，接着是交替的 `user` 和 `assistant` 类型的消息。`system `类型的消息可以帮助设置 `assistant` 的行为，指导它应该如何回答用户的问题，例如上述示例中的系统消息"你是一个非常实用的 AI 助手"就告诉 `assistant` 自己是一个实用的助手。
+
+整个消息列表可以非常短，只有一个消息，也可以非常长，占据数页。
+
+在聊天机器人交互中，聊天历史记录也很重要，因为用户的指令可能需要引用之前的消息信息。在上述代码示例中，用户的最后一个问题“冠军是谁？”只有在之前的消息中提到2022年世界杯时才有意义。
+
+由于机器学习模型没有以前请求的记忆，因此必须通过对话提供所有相关信息。如果一个对话不能适合模型 Token 限制内，就需要做一些缩短处理。
