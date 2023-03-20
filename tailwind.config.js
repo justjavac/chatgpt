@@ -235,6 +235,8 @@ module.exports = {
             },
             blockQuote: {
               color: theme("colors.white"),
+              fontStyle: "normal",
+              quotes: "none",
             },
           },
         },
