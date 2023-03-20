@@ -32,10 +32,6 @@ const fallbackDefaultExports = {
   "src/pages/**/*": ["@/layouts/ContentsLayout", "ContentsLayout"],
 };
 
-const fallbackGetStaticProps = {
-  "src/pages/blog/**/*": "@/layouts/ContentsLayout",
-};
-
 module.exports = withBundleAnalyzer({
   swcMinify: true,
   pageExtensions: ["js", "jsx", "mdx"],
@@ -266,23 +262,6 @@ module.exports = withBundleAnalyzer({
                     fallbackDefaultExports[glob][1]
                   } as _Default } from '${fallbackDefaultExports[glob][0]}'`,
                   "export default _Default",
-                );
-                break;
-              }
-            }
-          }
-
-          if (
-            !/^\s*export\s+(async\s+)?function\s+getStaticProps\s+/m.test(
-              source.replace(/```(.*?)```/gs, ""),
-            )
-          ) {
-            for (let glob in fallbackGetStaticProps) {
-              if (minimatch(resourcePath, glob)) {
-                extra.push(
-                  `export { getStaticProps } from '${
-                    fallbackGetStaticProps[glob]
-                  }'`,
                 );
                 break;
               }
