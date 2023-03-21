@@ -101,24 +101,24 @@ ChatGPT 会返回下面内容：
 尽管聊天格式使多轮对话变得容易，但它同样适用于没有任何对话的单轮任务。一个 API 调用的示例如下：
 
 ```js chat.js
-import { Configuration, OpenAIApi } from "openai";
+  import { Configuration, OpenAIApi } from "openai";
 
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+  const configuration = new Configuration({
+    apiKey: process.env.OPENAI_API_KEY,
+  });
+  const openai = new OpenAIApi(configuration);
 
-const completion = await openai.createChatCompletion({
-  model: "gpt-3.5-turbo",
-  messages: [
-    { role: "system", content: "你是一个非常实用的 AI 助手" },
-    { role: "user", content: "2022世界杯在哪儿举行？" },
-    { role: "assistant", content: "2022年世界杯将在卡塔尔举行。" },
-    { role: "user", content: "冠军是谁？" },
-  ],
-});
+  const completion = await openai.createChatCompletion({
+    model: "gpt-3.5-turbo",
+    messages: [
+>     { role: "system", content: "你是一个非常实用的 AI 助手" },
+>     { role: "user", content: "2022世界杯在哪儿举行？" },
+>     { role: "assistant", content: "2022年世界杯将在卡塔尔举行。" },
+>     { role: "user", content: "冠军是谁？" },
+    ],
+  });
 
-console.log(completion.data.choices[0]);
+  console.log(completion.data.choices[0]);
 ```
 
 `messages` 参数是 `createChatCompletion` 方法中最重要的参数，该参数包含多个消息对象。每个消息都有一个角色，可以是 `system`、`user`、`assistant` 中的任意一个。

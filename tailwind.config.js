@@ -8,7 +8,7 @@ module.exports = {
   experimental: {
     optimizeUniversalDefaults: true,
   },
-  content: ["./src/**/*.{js,jsx,mdx,html}", "./remark/**/*.js"],
+  content: ["./src/**/*.{js,jsx,mdx,html}", "./scripts/remark/**/*.js"],
   blocklist: ["[html:has(&)]:bg-blue-500"],
   darkMode: "class",
   theme: {
