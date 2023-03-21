@@ -49,6 +49,34 @@ OpenAI 官方提供了一个在线[分词工具](https://platform.openai.com/tok
 
 我本以为是 2 个 Token，或者是 4 个 Token，没想到居然是 8 个 Token。所以使用中文的时候一定要注意。
 
+我用 API 试了一下，发送 `你好世界`，输出 `\n\n你好，世界！`，Token 信息：
+
+```json
+  {
+    "id": "chatcmpl-6w************************AjQ",
+    "object": "chat.completion",
+    "created": 1679369744,
+    "model": "gpt-3.5-turbo-0301",
+    "usage": {
+>       "prompt_tokens": 12,
+>       "completion_tokens": 8,
+>       "total_tokens": 20
+    },
+    "choices": [
+      {
+        "message": {
+          "role": "assistant",
+          "content": "\n\n你好，世界！"
+        },
+        "finish_reason": "stop",
+        "index": 0
+      }
+    ]
+  }
+```
+
+对于这个结果，我不是很明白。为什么 `prompt_tokens` 是 12，`completion_tokens` 是 8，这个结果是怎么算出来的？
+
 ## Model
 
 OpenAI 致力于开发各种先进的深度学习模型，以解决人工智能领域的各种挑战。这些模型适用于不同的应用场景，如自然语言处理、计算机视觉、游戏AI等，并已在多个实用案例中取得了显著的成效。
