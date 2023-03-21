@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 export function Title({ suffix = 'ChatGPT 从入门到精通', children }) {
-  let title = children + (suffix ? ` - ${suffix}` : '')
+  let title = children + (suffix !== children ? ` - ${suffix}` : '')
 
   return (
     <>
